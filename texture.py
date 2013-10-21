@@ -28,11 +28,6 @@ def gabor_kernel(wavelen, angle):
 	return kernel
 
 
-def show_gray(image):
-	imshow(image, cmap=cm.gray)
-	show()
-
-
 def filter_with_gabor(image, wavelen=20, angle=0):
 	kernel = gabor_kernel(wavelen, angle)
 	filtered_image = abs(convolve(image, kernel))
