@@ -1,14 +1,36 @@
-'''
-TODO
+# Zkombinuje vysledek barevne segmentace s texturami a vrati celkovy vysledek 
+def asmk(color_features, texture_features):
+	pass
 
-asmk(color_features, texture_features)
-cluster(image, colors)
-cluster_multispace(clustered_rgb_img, dominant_colors_rgb, clustered_yiq_img, dominant_colors_yiq)
-extract_colors_simple(image, num_colors)
-extract_colors_som(simage)
-extract_textures(image)
-smooth(image)
-'''
+
+# Pomoci k-means algoritmu segmentuje RGB nebo YIQ obrazek
+def cluster(image, colors):
+	pass
+
+
+# Zkombinuje segmentovane RGB a YIQ obrazky
+def cluster_multispace(clustered_rgb_img, dominant_colors_rgb, clustered_yiq_img, dominant_colors_yiq)
+	pass
+	
+
+# Snizi barevnou hloubku na 3 bity a vrati nejcasteji se vyskytujici barvy
+def extract_colors_simple(image, num_colors):
+	pass
+
+
+# Pomoci self-organizing map (SOM) algoritmu vyextrahuje dominantni barvy
+def extract_colors_som(simage):
+	pass
+
+
+# Vyextrahuje texturove info
+def extract_textures(image):
+	pass
+
+
+# Odstrani sum
+def smooth(image):
+	pass
 
 
 def cluster_multispace(rgb_img):
