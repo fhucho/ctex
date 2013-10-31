@@ -2,9 +2,9 @@ using Clustering
 using Images
 using ImageView
 
-image = convert(Array, imread("bulb.png"))
+image = convert(Array, imread("test1.png"))
 pixels = convert(Array{Float64,2}, transpose(reshape(image, size(image, 1) * size(image, 2), size(image, 3))))
-result = kmeans(pixels, 4)
+result = kmeans(pixels, 3)
 colors = convert(Array{Int,2}, round(result.centers))
 
 image = permutedims(image, [3, 1, 2])
