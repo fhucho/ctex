@@ -38,11 +38,11 @@ def smooth(image, iters=10, d=25, alpha=0.3, gamma=0.8):
                         gradients.append(image[x+pos[0]][y+pos[1]] - image[x][y])
                     except IndexError:
                         gradients.append(0.0)
-                # transform gradients with theirs "boosted" version
-                # m = sorted(gradients)[len(gradients) // 2]
-                # gradients = map(lambda x: x * 1 + 2*exp(-1*(fabs((abs(x)-m) / d1(i)))), gradients)
+                # transform gradients into the "boosted" form
+                m = sorted(gradients)[len(gradients) // 2]
+                gradients = map(lambda x: x * (1 + 2*exp(-1*(fabs((abs(x)-m) / d1(i))))), gradients)
                 try:
-                    image_mod[x][y] += int(sum(map(lambda x: x * 0.3 * Dpm(x, i), gradients)))  # divergence
+                    image_mod[x][y] += int(sum(map(lambda x: x * 0.3 * Dfab(x, i), gradients)))  # divergence
                 except OverflowError:
                     image_mod[x][y] = 0 if image_mod[x][y] < 128 else 255
             # end for y
