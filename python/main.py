@@ -9,7 +9,7 @@ def cluster(image, colors):
 
 
 # Zkombinuje segmentovane RGB a YIQ obrazky
-def cluster_multispace(clustered_rgb_img, dominant_colors_rgb, clustered_yiq_img, dominant_colors_yiq)
+def cluster_multispace(clustered_rgb_img, dominant_colors_rgb, clustered_yiq_img, dominant_colors_yiq):
 	pass
 	
 
@@ -45,7 +45,7 @@ def cluster_multispace(rgb_img):
 	return cluster_multispace(clustered_rgb_img, colors_rgb, clustered_yiq_img, colors_yiq)
 
 
-def main():
+funct main():
 	image = load_image()
 	color_features = cluster_multispace(image)
 	texture_features = extract_textures(image)
