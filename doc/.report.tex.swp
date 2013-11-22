@@ -1,0 +1,107 @@
+\documentclass[fleqn,numbers=noenddot,headinclude,%twoside,%1headlines,%
+				11pt,a4paper,footinclude,%
+				cleardoublepage=empty,abstractoff %
+                ]{scrartcl}
+
+\usepackage[hyphens]{url}
+\usepackage{float}
+
+\def\tomas{Tom\'{a}\v{s} Peterka}
+\def\tomasid{peterto8}
+\def\franta{Franti\v{s}ek Hejl}
+\def\frantaid{hejl}
+\def\jan{Jan}
+\def\frantaid{hejl}
+
+\def\laboratorynr{5}
+\def\laboratoryname{CTex evaluation}
+\def\date{\today}
+
+
+\input{preambl}
+
+%\usepackage[subfigure]{tocloft}
+%\renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}} % for parts
+%\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}} % for chapters
+%\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} % for sections
+
+\usepackage[sl,SF]{subfigure}
+\usepackage{wrapfig}
+\usepackage[hang,marginal]{footmisc}
+\usepackage[justification=raggedright, margin=1cm,singlelinecheck=false,format=hang, labelfont={sl,small,rm},font={small,sf}, skip=10pt]{caption}
+\renewcommand*\thesubfigure{\alph{subfigure}}
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\abs}{abs}
+
+\makeatletter
+\newcommand\wrapfill{\par
+    \ifx\parshape\WF@fudgeparshape
+    \nobreak
+    \vskip-\baselineskip
+    \vskip\c@WF@wrappedlines\baselineskip
+    \allowbreak
+    \WFclear
+    \fi
+}
+\makeatother
+
+\setlength{\intextsep}{6pt}
+
+\usepackage{titlesec}
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesection}{1em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries}{\thesection}{1em}{}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\begin{document}
+
+\makesavenoteenv[figure*]{figure}
+\pagestyle{empty}
+\onecolumn
+%%Manuelle titelseite
+\null  % Empty line
+\nointerlineskip  % No skip for prev line
+\vspace*{-1cm}
+\begin{center}
+
+\includegraphics[width=7cm,keepaspectratio=true]{./imgs/fit_logo.pdf}\\[0.3cm]
+Czech Technical University\\
+Faculty of Informatics
+
+\vspace{1.2cm}
+
+\Large MI-ROZ -- Pattern Recognition\\[0.5cm]
+\laboratoryname \normalsize\\
+
+\vspace{0.7cm}
+
+\begin{tabular}{cc}
+\tomas & \franta \\
+\tomasid @fit.cvut.cz & \frantaid @fit.cvut.cz\\
+\end{tabular} \\[0.7cm]
+\date
+\end{center}
+\vfill
+\begin{abstract}
+Lorem ipsum
+\end{abstract}
+\vfill
+\tableofcontents
+
+\clearpage
+
+\pagestyle{scrheadings}
+\setcounter{page}{1}
+
+\section{Implementation of CTex algorithm}
+Tralala
+
+%\lstset{style=java}
+%\begin{lstlisting}
+%
+%\end{lstlisting}
+
+\end{document}
