@@ -1,5 +1,6 @@
 #include <iostream>
 #include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/highgui/highgui.hpp>
 #include "filters.hh"
 
 #define FAILURE 1
@@ -14,10 +15,10 @@ int main(int argc, char *argv[]) {
     }
 
     // we suppose format CV_16U with 3 channels
-    image = cv::imread(argv[1])
+    image = cv::imread(argv[1], CV_LOAD_IMAGE_COLOR);
     if (image.data == NULL) { return FAILURE; }
 
-    Dfab(image);
+    smooth(image);
 
     return 0;
 }

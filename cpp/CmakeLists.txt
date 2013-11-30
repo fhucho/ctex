@@ -1,0 +1,3 @@
+## Not using this file
+## If you really want to then write it by yourself
+## There is no OpenCV module in cmake, so I've chosen to write classic Makefile

@@ -1,12 +1,13 @@
-CC=g++
-CFLAGS=-std=c++11 -O2 `pkg-config opencv --cflags`
-LDFLAGS=`pkg-config opencv --cflags --libs`
-
+CC      = g++
+CFLAGS  = -std=c++11 -O2
+LDFLAGS = `pkg-config --libs opencv`
+FILES   = filters.o main.o
 all: ctex
 
-ctex: filters.o main.o
-	$(CC) $(LDFLAGS) $<
+ctex: $(FILES)
+	$(CC) $(LDFLAGS) -o $@ $(FILES)
 
-debug
+%.o: %.cc
+	$(CC) $(CFLAGS) -o $@ -c $<
 
-.PHONY: all debug
+.PHONY: all ctex
