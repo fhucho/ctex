@@ -239,7 +239,7 @@ function kmeans_iter(askm)
 		process_row(askm, y)
 	end
 
-	for i in 1:nclusters
+	for i in 1:askm.nclusters
 		askm.clusters_clr[i, :, :] = askm.sums_clr[i, :, :] / askm.counts[i]
 		askm.clusters_tex[i, :, :] = askm.sums_tex[i, :, :] / askm.counts[i]
 	end
