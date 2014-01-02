@@ -6,7 +6,7 @@
 
 namespace ctex {
 
-    void gb_fab(cv::Mat& image, int iters=10, int d=25, float alpha=0.3, float gamma=0.8);
+    void gb_fab(cv::Mat& image, int iters=10, int d=25, float alpha=0.125, float gamma=0.8);
 
     inline double d1(int t, float gamma) {
         return 40 * pow(gamma, t);
@@ -16,8 +16,8 @@ namespace ctex {
         return 80 * pow(gamma, t);
     }
 
-    inline uint8_t Dfab(uint8_t x, int t, float gamma) {
-        return 2*exp(-1*(x/d1(t, gamma)*x/d1(t, gamma))) - exp(-1*((x/d2(t, gamma))*(x/d2(t, gamma))));
+    inline double Dfab(double x, int t, float gamma) {
+        return 2.0*exp(-1*(x/d1(t, gamma)*x/d1(t, gamma))) - exp(-1*((x/d2(t, gamma))*(x/d2(t, gamma))));
     }
 }
 

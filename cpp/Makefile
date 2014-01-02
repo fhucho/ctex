@@ -1,8 +1,13 @@
-CC      = g++
-CFLAGS  = -std=c++11 -O2
+CC      = c++
+CFLAGS  = -std=c++11
 LDFLAGS = `pkg-config --libs opencv`
-FILES   = filters.o main.o
+FILES   = filters.o clustering.o main.o
+
+all: CFLAGS += -O2
 all: ctex
+
+debug: CFLAGS += -g
+debug: ctex
 
 ctex: $(FILES)
 	$(CC) $(LDFLAGS) -o $@ $(FILES)
@@ -10,4 +15,7 @@ ctex: $(FILES)
 %.o: %.cc
 	$(CC) $(CFLAGS) -o $@ -c $<
 
-.PHONY: all ctex
+clean:
+	rm -f *.o
+
+.PHONY: all ctex clean
