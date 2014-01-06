@@ -5,6 +5,6 @@
 #define CTEX_INFO 1
 #define CTEX_RELEASE 2
 
-#define CTEX_LOG_LEVEL CTEX_INFO
+#define CTEX_LOG_LEVEL CTEX_DEBUG
 
 #endif

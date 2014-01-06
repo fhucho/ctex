@@ -32,15 +32,17 @@ int main(int argc, char *argv[]) {
     image = cv::imread(argv[1], CV_LOAD_IMAGE_COLOR);
     if (image.data == NULL) { return FAILURE; }
 
-    // image_rgb = image.clone();
-    // ctex::gb_fab(image_rgb, 2);
-    // cv::imwrite(output, image_rgb);
+    // image_bgr = image.clone();
+    // ctex::gb_fab(image_bgr, 2);
+    // cv::imwrite(output, image_bgr);
 
     // cvtColor(image, image_yiq, CV_BGR2YUV); // TODO: replace with proper YIQ
     // ctex::gb_fab(image_yiq, 2);
 
-    std::array<uchar, 16*3> dc;
-    ctex::dominant_colors(image, dc.data(), 16);
+    auto *dc_bgr = new std::array<uchar, 16*3>;
+    ctex::dominant_colors(image, dc_bgr->data(), 16);
+    ctex::cluster(image_bgr, dc_bgr->data(), 16);
+    delete dc_bgr;
 
     return 0;
 }

@@ -1,4 +1,4 @@
-CC      = c++
+CC      = g++
 CFLAGS  = -std=c++11
 LDFLAGS = `pkg-config --libs opencv`
 FILES   = filters.o clustering.o main.o

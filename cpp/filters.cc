@@ -21,24 +21,8 @@ namespace ctex {
 
         for(int iter=0; iter<iters; ++iter) {
             cv::copyMakeBorder(image, bordered, 1, 1 ,1 ,1, cv::BORDER_CONSTANT, 0);
-            
+
             if(CTEX_LOG_LEVEL <= CTEX_INFO) std::cout << "Filter " << iter+1 << "/" << iters <<std::endl;
-
-            /** DEBUG STUFF **/
-            // std::cout << "Bordered (" << bordered.rows << "x" << bordered.cols << ")" << std::endl;
-            // std::cout << "[";
-            // for(size_t x = 0; x < 5; ++x) {
-            //     for(size_t y = 0; y < 5 * 3 ; y+=3) {
-            //         std::cout << "(";
-            //         for(size_t d = 0; d < 3; ++d) {
-            //             std::cout << uint32_t(image.at<uchar>(x, y+d)) << " ";
-            //         }
-            //         std::cout << "), ";
-            //     }
-            //     std::cout << std::endl;
-            // }
-            // std::cout << "]" << std::endl;
-
 
             for(size_t x = 1; x < bordered.rows - 1; ++x) {
                 for(size_t y = 3; y < (bordered.cols - 1) * 3 ; ++y) {
