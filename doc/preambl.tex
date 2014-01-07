@@ -27,7 +27,7 @@
 %	    textheight=22cm
 		]{geometry}
 
-\usepackage[english]{babel}
+\usepackage[czech]{babel}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{abstract}
@@ -46,55 +46,6 @@
 
 \usepackage{listings}
 %\usepackage{listingsutf8}
-\lstdefinestyle{cmd}{      
-      basicstyle=\ttfamily\fontsize{10}{10.6}\selectfont,
-      aboveskip={.3\baselineskip},
-      %columns=fullflexible,
-      showstringspaces=true,
-      breaklines=true,
-      tabsize=3,
-      showspaces=false,
-      frame=leftline,
-      backgroundcolor=\color{lightgray},
-      literate= %
-	{Ö}{{\"O}}1 {Ä}{{\"A}}1 {Ü}{{\"U}}1 {ß}{{\ss}}1 {ü}{{\"u}}1 {ö}{{\"o}}1 {ä}{{\"a}}1
-}
-
-\lstdefinestyle{cmd_tiny}{      
-      basicstyle=\ttfamily\fontsize{7}{9.2}\selectfont,
-      aboveskip={.3\baselineskip},
-      %columns=fullflexible,
-      showstringspaces=true,
-      breaklines=true,
-      tabsize=3,
-      showspaces=false,
-      frame=leftline,
-      backgroundcolor=\color{lightgray},
-      literate= %
-	{Ö}{{\"O}}1 {Ä}{{\"A}}1 {Ü}{{\"U}}1 {ß}{{\ss}}1 {ü}{{\"u}}1 {ö}{{\"o}}1 {ä}{{\"a}}1
-}
-
-\lstdefinestyle{shell}{
-      language=bash,
-      identifierstyle=\ttfamily,
-      keywordstyle=\bfseries\ttfamily\color[rgb]{0,0,1},
-      commentstyle=\color[rgb]{0.133,0.545,0.133},
-      stringstyle=\color[rgb]{0,0,1},
-      numbers=left, 
-      numbersep=7pt,
-      numberstyle=\sffamily\tiny,
-      basicstyle=\ttfamily\small,
-      aboveskip={.3\baselineskip},
-      %columns=fullflexible,
-      showstringspaces=true,
-      breaklines=true,
-      tabsize=3,
-      showspaces=false,
-      frame=leftline,
-      backgroundcolor=\color{lightgray},
-      literate= %
-	{Ö}{{\"O}}1 {Ä}{{\"A}}1 {Ü}{{\"U}}1 {ß}{{\ss}}1 {ü}{{\"u}}1 {ö}{{\"o}}1 {ä}{{\"a}}1
-}
 \lstdefinestyle{java}{
       language=java,
       identifierstyle=\ttfamily,
@@ -190,16 +141,6 @@
 
 
 \newcounter{ale}
-
-\newcommand{\abc}{\item[\alph{ale})]\stepcounter{ale}}
-
-\newenvironment{liste}{\begin{itemize}}{\end{itemize}}
-\newcommand{\aliste}{\begin{liste} \setcounter{ale}{1}}
-\newcommand{\zliste}{\end{liste}}
-
-\newenvironment{abcliste}{\aliste}{\zliste}
-
-
 
 \pagestyle{scrheadings}
 \clearscrheadfoot
