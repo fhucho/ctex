@@ -99,7 +99,7 @@ Práce popisuje implementaci algoritmu CTEX a jeho otestování na sérii zkuše
 \section{Implementace CTex algoritmu}
 \subsection{GB-FAB filter}
 \label{sub:gb-fab}
-Anisotropický filter pro zvýraznění středně silných hran. Implementace podle zadání nebyla problém a nevznikly žádné odchylky. Jedině snad, že gradient je počítán 4 směrově, místo 8 směrově. V článku není jasně definováno jak přesně gradient počítali.
+Anisotropický filtr pro zvýraznění středně silných hran. Implementace podle zadání nebyla problém a nevznikly žádné odchylky. Jedině snad, že gradient je počítán 4 směrově místo 8. V článku není jasně definováno jak přesně jej počítat.
 Tento filter používá upravenou hodnotu gradientu (pomocí mediánu z gradientu ve všech osách). Rozpuštění okolních pixelů do středového je řízena funkcí s průběhem na obrázku \ref{img:gbfab} a proto filter zvýrazňuje střední hrany, ponechává hrany ostré a zbytek celkem agresivně rozpouští do okolí.
 \begin{figure}[htp]
 \centering
@@ -123,7 +123,13 @@ Po provedení a ukončení iterativního SOM algoritmu spočítáme váhy pro ka
 
 \subsection{Shlukování obrázků}
 \label{sub:kmeans}
-
+Shlukování obrázků je provedeno jak na RGB tak YIQ formátu. Počet shluků je sebrán z předchozího kroku \ref{sub:som}. Oba obrázky nejdříve projdou gb-fab filterem, poté jsou z nich extrahovány dominantní barvy a ty jsou, spolu s počtem shluků, použity jako iniciální nastavení k-means algoritmu. Výstupem je shluknutý obrázek jako například na obrázku \ref{img:clustered}, kde v levé části vidíme zdrojový a v pravé shluknutý.
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=1.00]{imgs/clustered.png}
+\caption{Ukázka shluknutých obrázků}
+\label{img:clustered}
+\end{figure}
 % subsection  (end)
 
 \subsection{Multispace K-means}
