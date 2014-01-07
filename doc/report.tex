@@ -14,7 +14,6 @@
 \def\janid{tkacijan}
 \def\frantaid{hejl}
 
-\def\laboratorynr{5}
 \def\laboratoryname{Ov\v{e}\v{r}en\'{i} metody CTEX}
 \def\date{\today}
 
@@ -100,16 +99,35 @@ Práce popisuje implementaci algoritmu CTEX a jeho otestování na sérii zkuše
 \section{Implementace CTex algoritmu}
 \subsection{GB-FAB filter}
 \label{sub:gb-fab}
-lorem ipsum
+Anisotropický filter pro zvýraznění středně silných hran. Implementace podle zadání nebyla problém a nevznikly žádné odchylky. Jedině snad, že gradient je počítán 4 směrově, místo 8 směrově. V článku není jasně definováno jak přesně gradient počítali.
+Tento filter používá upravenou hodnotu gradientu (pomocí mediánu z gradientu ve všech osách). Rozpuštění okolních pixelů do středového je řízena funkcí s průběhem na obrázku \ref{img:gbfab} a proto filter zvýrazňuje střední hrany, ponechává hrany ostré a zbytek celkem agresivně rozpouští do okolí.
+\begin{figure}[htp]
+\centering
+\includegraphics[width=\textwidth]{plots/dfab_function.pdf}
+\caption{Funkce rozpuštění gradientu do středu}
+\label{img:gbfab}
+\end{figure}
 % subsection  (end)
 
-\subsection{SOM \& K-means shlukování}
+\subsection{Výběr ideálního počtu shluků}
 \label{sub:som}
-lorem ipsum
+Tato procedura sestává z více kroků. Nejdříve se pomocí SOM určí nejlepší počet centroidů a ty se poté předají do k-means algoritmu.
+
+\subsubsection{Výběr dominantních barev} Slouží k iniciaci SOM mapy o velikosti 16 (čtverec $4\times4$), aby se nepoužívaly náhodné hodnoty. Prvník krokem je redukce barevného prostoru z (255, 255, 255) do (8, 8, 8) a zde sestrojíme 3D histogram. Z tohoto histogramu sebereme 16 barev s nejvyšší hodnotou pro iniciaci SOM mapy.
+%subsubsection  (end)
+
+\subsubsection{SOM analýza}
+Po provedení a ukončení iterativního SOM algoritmu spočítáme váhy pro každý neuron v síti a spojujeme takové, které mají vzdálenost vah $<0.3$. Pokaždé když spojujeme 2 shluky, vybíráme jako reprezentanta ten s menší \textit{confidence} (vnitřní rozptyl částic). Výsledný počet neuronů/shluků je výstupem této části.
+%subsubsection  (end)
+% subsection  (end)
+
+\subsection{Shlukování obrázků}
+\label{sub:kmeans}
+
 % subsection  (end)
 
 \subsection{Multispace K-means}
-\label{sub:multi-k-means}
+\label{sub:multi-kmeans}
 lorem ipsum
 % subsection  (end)
 
