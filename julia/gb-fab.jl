@@ -12,10 +12,20 @@ function boost_gradient(g, m, t)
 end
 
 function gradient2d(x)
+	function gr(a)
+		g = copy(a)
+		g[1] = a[2] - a[1]
+		g[end] = a[end] - a[end-1]
+		for i in 2:size(a, 1) - 1
+			g[i] = ((a[i] - a[i-1]) + (a[i+1] - a[i])) / 2
+		end
+		return g
+	end
+
 	function horizontal(x)
 		result = zeros(size(x))
 		for i in 1:size(x, 1)
-			result[i,:] = gradient(reshape(x[i,:], size(x, 2)))
+			result[i,:] = gr(reshape(x[i,:], size(x, 2)))
 		end
 		return result
 	end

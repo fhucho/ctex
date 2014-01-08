@@ -259,5 +259,5 @@ function cluster_askm(image, textures, nclusters)
 		prev_objective = askm.objective
 	end
 
-	return askm
+	return (askm.clustered - 1) / askm.nclusters
 end

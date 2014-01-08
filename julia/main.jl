@@ -55,5 +55,7 @@ function ctex(image_rgb)
 	cluster_askm(clustered, textures, nclusters)
 end
 
-image_rgb = permutedims(convert(Array, imread("tiger-4.jpg") / 255), [3, 2, 1])
-ctex(image_rgb)
+image_rgb = permutedims(convert(Array, imread(ARGS[1]) / 255), [3, 2, 1])
+result = ctex(image_rgb)
+parts = split(ARGS[1], ".")
+imwrite(result, "$(parts[1]).clustered.$(parts[2])")
