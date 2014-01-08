@@ -257,6 +257,8 @@ function cluster_askm(image, textures, nclusters)
 			break
 		end
 		prev_objective = askm.objective
+		
+		imwrite((askm.clustered - 1) / askm.nclusters, "tmp.png")
 	end
 
 	return (askm.clustered - 1) / askm.nclusters
