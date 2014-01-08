@@ -253,7 +253,7 @@ function cluster_askm(image, textures, nclusters)
 	while true
 		kmeans_iter(askm)
 		println("Changed: $(askm.changed), objective: $(askm.objective)")
-		if askm.changed < 100
+		if askm.objective > prev_objective
 			break
 		end
 		prev_objective = askm.objective
